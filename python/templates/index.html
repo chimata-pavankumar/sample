@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <style type="text/css">
+        .text{
+              background-color:none;
+              color:black;
+              text-align:center;
+              font-size:1em;
+              border-radius:40px;
+              padding:2px;
+              margin: 5px 10px 0px -8px; ;
+              width:10%;
+              border:3px solid black;
+              outline:none;
+        }
+        .h {
+            margin-left:0px;
+            width:100%;
+            background-color:black;
+            color:white;
+            font-family:Lucida Console;
+            font-size:1.8em;
+            padding:5px;
+            font-weight:bold;
+            border:3px dotted white;
+            border-radius: 30px;
+            text-align: center;
+        }
+        .submit{
+               margin-top:5px;
+               position:relative;
+               background:#736c6c;
+               font-family:Lucida Console;
+               outline:none;
+               font-weight:bold;
+               width:14%;
+               border:none;
+               padding:5px;
+               font-size:1em;
+               border-radius:40px;
+               overflow:hidden;
+        }
+         .submit:hover{
+                 transition:.4s;
+                 background:#736c6c;
+                 color:white;
+         }
+    </style>
+</head>
+<body style="background-color:#669999">
+ <form action="result" method="post">
+     {% csrf_token %}
+     <h1 class = 'h'>MARKS PERCENTAGE</h1>
+    ENGLISH: &nbsp;&nbsp;<input type="number" class="text" id="eng" name="eng" value= {{e}} placeholder="Enter your marks" required autofocus><br>
+    MATHS: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number"  class="text" id="mat" name="math" value = {{m}} placeholder="Enter your marks" required><br>
+    SCIENCE: &nbsp;&nbsp;<input type="number" id="sci" name="sci"  class="text" value = {{s}} placeholder="Enter your marks" required><br>
+    <input type="submit" class='submit' value="GET PERCENTAGE"><br>
+    </form>
+ <h1 style="font-family:Lucida Console;font-size:1em"> {{dd}}</h1>
+ <hr>
+ <form action="ldate" method="post">
+     {% csrf_token %}
+    <h1 class = 'h'>APPLY FOR INSURANCE</h1>
+    NAME: &nbsp;&nbsp;<input type="text" class="text" name="name" required value= {{n}}><br>
+    DATE: &nbsp;&nbsp;&nbsp;<input type="date" class="text" name="date" value= {{da}} required><br>
+    <input type="submit" class='submit' value="APPLY">
+ </form>
+<h1 style="font-family:Lucida Console;font-size:1em"> {{last}} </h1>
+<hr>
+<form action="age" method="post">
+    {% csrf_token %}
+    <h1 class = 'h'>FIND YOUR AGE HERE</h1>
+    ENTER AGE: &nbsp;&nbsp;<input type="date" class="text" id = 'd' name = 'date'  placeholder="enter date of birth" required value={{age}}><br>
+    <input type="submit" class='submit' value="GET AGE">
+</form>
+<h1 style="font-family:Lucida Console;font-size:1em"> {{a}} </h1>
+</body>
+</html>
